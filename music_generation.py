@@ -113,113 +113,33 @@ unique_chars = len(index_to_char)
 
 #################################################################################################################
 
-##model with 20th iteration  weight
-model20 = make_model(unique_chars)
-model20.load_weights("model_512_weights_20.h5")
 
-sequence_index = [25]
-for _ in range(10000):
-    batch = np.zeros((1, 1))
-    batch[0, 0] = sequence_index[-1]
+def output_generation(model_name):
+    model=model_name[:3]
+    model = make_model(unique_chars)
+    model.load_weights(model_name)
+
+    sequence_index = [25]
+    for _ in range(10000):
+        batch = np.zeros((1, 1))
+        batch[0, 0] = sequence_index[-1]
         
-    predicted_probs = model20.predict_on_batch(batch).ravel()
-    sample = np.random.choice(range(unique_chars), size = 1, p = predicted_probs)
+        predicted_probs = model.predict_on_batch(batch).ravel()
+        sample = np.random.choice(range(unique_chars), size = 1, p = predicted_probs)
         
-    sequence_index.append(sample[0])
+        sequence_index.append(sample[0])
     
-seq = ''.join(index_to_char[c] for c in sequence_index)
+    seq = ''.join(index_to_char[c] for c in sequence_index)
 
-#saving output
-with open("output_20.txt","w+") as out:
-    out=seq
+    #saving output
+    with open("output_{}.txt".format(model_name[10:22]),"w+") as out:
+        out.write(seq)
 
-#################################################################################################################
-##model with 40th iteration  weight
-model40 = make_model(unique_chars)
-model40.load_weights("model_512_weights_40.h5")
-
-sequence_index = [25]
-for _ in range(10000):
-    batch = np.zeros((1, 1))
-    batch[0, 0] = sequence_index[-1]
-        
-    predicted_probs = model40.predict_on_batch(batch).ravel()
-    sample = np.random.choice(range(unique_chars), size = 1, p = predicted_probs)
-        
-    sequence_index.append(sample[0])
-    
-seq = ''.join(index_to_char[c] for c in sequence_index)
-
-#saving output
-with open("output_40.txt","w+") as out:
-    out=seq
-
-#################################################################################################################
-
-##model with 60th iteration  weight
-model60 = make_model(unique_chars)
-model60.load_weights("model_512_weights_60.h5")
-
-sequence_index = [25]
-for _ in range(10000):
-    batch = np.zeros((1, 1))
-    batch[0, 0] = sequence_index[-1]
-        
-    predicted_probs = model60.predict_on_batch(batch).ravel()
-    sample = np.random.choice(range(unique_chars), size = 1, p = predicted_probs)
-        
-    sequence_index.append(sample[0])
-    
-seq = ''.join(index_to_char[c] for c in sequence_index)
-
-#saving output
-with open("output_60.txt","w+") as out:
-    out=seq
-
-#################################################################################################################
-
-##model with 40th iteration  weight
-model80 = make_model(unique_chars)
-model80.load_weights("model_512_weights_80.h5")
-
-sequence_index = [25]
-for _ in range(10000):
-    batch = np.zeros((1, 1))
-    batch[0, 0] = sequence_index[-1]
-        
-    predicted_probs = model80.predict_on_batch(batch).ravel()
-    sample = np.random.choice(range(unique_chars), size = 1, p = predicted_probs)
-        
-    sequence_index.append(sample[0])
-    
-seq = ''.join(index_to_char[c] for c in sequence_index)
-
-#saving output
-with open("output_80.txt","w+") as out:
-    out=seq
-
-#################################################################################################################
-
-##model with 40th iteration  weight
-model100 = make_model(unique_chars)
-model100.load_weights("model_512_weights_100.h5")
-
-sequence_index = [25]
-for _ in range(10000):
-    batch = np.zeros((1, 1))
-    batch[0, 0] = sequence_index[-1]
-        
-    predicted_probs = model100.predict_on_batch(batch).ravel()
-    sample = np.random.choice(range(unique_chars), size = 1, p = predicted_probs)
-        
-    sequence_index.append(sample[0])
-    
-seq = ''.join(index_to_char[c] for c in sequence_index)
-
-#saving output
-with open("output_100.txt","w+") as out:
-    out=seq
-
+output_generation('model_512_weights_20.h5')
+output_generation('model_512_weights_40.h5')
+output_generation('model_512_weights_60.h5')
+output_generation('model_512_weights_80.h5')
+output_generation('model_512_weights_100.h5')
 
 #################################################################################################################
 
