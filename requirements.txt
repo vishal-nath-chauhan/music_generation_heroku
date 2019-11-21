@@ -4,3 +4,5 @@ wget
 keras
 matplotlib
 tensorflow
+selenium
+flask

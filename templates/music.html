@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Music Generation</title>
+</head>
+ <style>
+body {
+  background-image: url("static/images/m14.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+
+}
+
+
+h1{
+	color:white;	
+	font-family:"URW Chancery L";
+	font-size: 250%
+		
+}
+h6{
+	color:white;	
+	font-family:"URW Chancery L";
+	font-size: 100%
+		
+}
+h2{
+	color:white;
+	font-family: "URW Chancery L";
+	font-size: 180%;
+}
+p{
+	color:white;
+	font-family: "URW Chancery L";
+	font-size: 100%;
+}
+h3{
+	color:white;
+	font-family: "URW Chancery L";
+	font-size: 180%;
+}
+
+.button {
+  background-color:#260054; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+</style> 
+
+
+<body>
+<center><font style="font-size: 800%; font-family:'URW Chancery L'; color:white"><b>Music Generation</b></font></center>
+<!-- <button class="button">2px</button> -->
+
+<p>
+<h1>	
+Music...its not just a word,its <b>art of combining tones in a manner to please the ear</b>
+</h1>
+
+<br>
+<br>
+<h3>Generating music was never been an easy task.It requires years of training and lots of hard work.But advancements of AI gave us power to generate music using AI.<br><br>
+Here with the help of Deep learning techniques we are generating sounds of <b>Hornpipe</b>.I used Long Short Term Memory(LSTM) a special type of Recurrent Neural Network(RNN) to generate these sounds.<br>
+</p>
+<p>Here are the outputs of model at different iterations,if you have knowledge of Hornpipes.You will find as the number of iterations increases quality of sound get improve.<br>
+</p></h3>
+
+<h6>**Outputs are in the form of abc notations.So to play sound you will be redirected to another website</h6>
+<br>
+<h3>
+Output at 20th iteration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <button class="button" onclick=" window.open('https://www.abcjs.net/abcjs-editor.html','_blank')">Output
+   	</button>
+<br>
+
+<br>
+Output at 40th iteration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <button class="button" onclick=" window.open('https://www.abcjs.net/abcjs-editor.html','_blank')">Output
+   	</button><br>
+
+<br>  	
+
+Output at 60th iteration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<form action="/forward/" method="post">
+   <button name="bt1" type="submit" class="button" onclick=" window.open('https://www.abcjs.net/abcjs-editor.html','_blank')">Output
+   	</button>
+</form>
+{{forward_message}}
+<br>
+
+<br>
+Output at 80th iteration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <button class="button" onclick=" window.open('https://www.abcjs.net/abcjs-editor.html','_blank')">Output
+   	</button><br>  	
+
+<br>
+Output at 100th iteration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <button class="button" onclick=" window.open('https://www.abcjs.net/abcjs-editor.html','_blank')">Output
+   	</button><br>
+</p>
+</h3>
+
+</body>
+</html>
